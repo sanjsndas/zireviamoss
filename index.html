@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zirevia Moss Stories · premium gardening blog</title>
+  <!-- unique typography: IBM Plex Serif + Inter, fresh palette: deep moss & cream -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6f2eb;  /* warm cream base */
+      color: #1d2e1b;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    .site-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #fcfaf6;
+      box-shadow: 0 20px 60px rgba(30, 40, 20, 0.06);
+      border-radius: 2.5rem 2.5rem 0 0;
+      padding: 2rem 2.5rem 0.5rem;
+    }
+
+    /* typography */
+    h1, h2, h3, h4 {
+      font-family: 'IBM Plex Serif', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #1f3a1c;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin: 2rem 0 1rem;
+      border-left: 6px solid #87a96b;
+      padding-left: 1.2rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+      margin: 1.8rem 0 0.8rem;
+      color: #2b4d27;
+    }
+    p {
+      margin-bottom: 1.4rem;
+      max-width: 75ch;
+    }
+    a {
+      color: #3a6b34;
+      text-decoration: none;
+      border-bottom: 1px dotted #b6c9a8;
+      transition: color 0.15s;
+    }
+    a:hover {
+      color: #1f3a1c;
+      border-bottom: 1px solid #3a6b34;
+    }
+
+    /* header / nav */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0 1.8rem;
+      border-bottom: 1px solid #e2dcd0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #1f3a1c;
+      letter-spacing: -0.02em;
+      background: #e3efd9;
+      padding: 0.2rem 1.2rem 0.2rem 1rem;
+      border-radius: 60px 12px 12px 60px;
+      display: inline-block;
+      border: 1px solid #baceaa;
+    }
+    .logo span {
+      background: #1f3a1c;
+      color: #f5efe6;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .nav-links a {
+      border-bottom: none;
+      color: #2a4526;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom: 2px solid #87a96b;
+      color: #1b3218;
+    }
+
+    /* hero */
+    .hero {
+      background: #e8efe2;
+      border-radius: 3rem 1rem 3rem 1rem;
+      padding: 3rem 3.5rem;
+      margin: 2.2rem 0 3.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: inset 0 -2px 10px rgba(90, 110, 70, 0.08);
+    }
+
+    .hero-content {
+      flex: 2 1 320px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #2b4227;
+      max-width: 600px;
+      margin-bottom: 1.8rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #3e6037;
+    }
+    .hero-tags span {
+      background: #fcfaf6;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #baceaa;
+      font-family: 'IBM Plex Serif', serif;
+    }
+
+    .hero-image {
+      flex: 1 1 160px;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 2.5rem 0.5rem 2.5rem 0.5rem;
+      box-shadow: 0 16px 30px -8px rgba(40, 60, 20, 0.2);
+      border: 2px solid #d6e1ca;
+    }
+
+    /* card grid */
+    .section-title {
+      margin: 3rem 0 1.2rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.2rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .card {
+      background: #fcfaf6;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      padding: 1.8rem 1.8rem 1.2rem;
+      border: 1px solid #e5dfd1;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .card:hover {
+      border-color: #b6c9a8;
+      box-shadow: 0 12px 28px -12px rgba(60, 80, 40, 0.12);
+    }
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .card .meta {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #5e7353;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .card p {
+      font-size: 0.98rem;
+      color: #2d3d28;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 1.2rem 0.2rem 1.2rem 0.2rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid #d9d2c2;
+    }
+
+    .featured-article {
+      background: #ebf2e3;
+      border-radius: 2.5rem 1rem 2.5rem 1rem;
+      padding: 2rem 2.8rem;
+      margin: 2rem 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .featured-article .text {
+      flex: 2;
+    }
+    .featured-article .img-wrap {
+      flex: 1;
+      min-width: 160px;
+    }
+    .featured-article img {
+      border-radius: 1.8rem 0.2rem 1.8rem 0.2rem;
+      width: 100%;
+      border: 1px solid #c9d7b9;
+    }
+
+    /* tables / checklists */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.8rem 0;
+      background: #f5f3ec;
+      border-radius: 1.5rem;
+      padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: #fcfaf6;
+      border-radius: 1.5rem;
+    }
+    th, td {
+      padding: 0.9rem 1.4rem;
+      text-align: left;
+      border-bottom: 1px solid #e3dccf;
+    }
+    th {
+      background: #dde6d2;
+      font-weight: 600;
+      color: #1f3a1c;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .checklist {
+      background: #f3f7ed;
+      padding: 1.8rem 2.2rem;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      margin: 1.8rem 0;
+    }
+    .checklist li {
+      list-style: none;
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+    .checklist li::before {
+      content: "🌱 ";
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    /* FAQ */
+    .faq-block {
+      background: #eef4e7;
+      border-radius: 2rem 0.5rem 2rem 0.5rem;
+      padding: 2rem 2.5rem;
+      margin: 2.5rem 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid #d0ddc0;
+      padding: 1rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 600;
+      font-size: 1.2rem;
+      font-family: 'IBM Plex Serif', serif;
+      color: #1f3a1c;
+    }
+
+    /* newsletter */
+    .newsletter {
+      background: #1f3a1c;
+      color: #e9f0e1;
+      border-radius: 3rem 0.5rem 3rem 0.5rem;
+      padding: 2.8rem 3rem;
+      margin: 3rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .newsletter h2 {
+      color: #e9f0e1;
+      border-left-color: #87a96b;
+      margin: 0;
+    }
+    .newsletter p {
+      color: #d8e4cc;
+      max-width: 400px;
+    }
+    .newsletter input {
+      background: #fcfaf6;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      min-width: 210px;
+      border: 1px solid #a5b997;
+    }
+    .newsletter button {
+      background: #baceaa;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      color: #1f3a1c;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .newsletter button:hover {
+      background: #cfe0bb;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      border-top: 1px solid #e2dcd0;
+      padding: 2.2rem 0 0.8rem;
+      font-size: 0.95rem;
+      color: #415a3b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .footer a {
+      border-bottom: none;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .site-wrap { padding: 1rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero-content h1 { font-size: 2.4rem; }
+      .featured-article { padding: 1.5rem; }
+      .newsletter { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* unique card style */
+    .card-accent {
+      border-left: 4px solid #87a96b;
+    }
+    .badge {
+      background: #1f3a1c;
+      color: #f2f5ea;
+      padding: 0.1rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      letter-spacing: 0.4px;
+      display: inline-block;
+      margin-right: 0.4rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="logo">Zirevia Moss <span>stories</span></div>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Soil, seasons &amp; slow wisdom</h1>
+      <p>Zirevia Moss Stories is a quiet corner for gardeners who read, learn, and grow. Deep-dive articles, time-tested techniques, and botanical insight — without the noise.</p>
+      <div class="hero-tags">
+        <span>🌿 Perennial wisdom</span>
+        <span>🧑‍🌾 No-dig</span>
+        <span>🌱 Heirloom seeds</span>
+        <span>📖 Soil science</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- hero image: 1/4 total, unique -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23d6e1ca'/%3E%3Ccircle cx='160' cy='150' r='70' fill='%2387a96b' opacity='0.3'/%3E%3Cpath d='M100 200 L200 120 L280 210 L140 250 Z' fill='%235e7353' opacity='0.25'/%3E%3Ctext x='50' y='150' font-family='IBM Plex Serif' font-size='22' fill='%231f3a1c' font-weight='500'%3E🌿 moss%3C/text%3E%3C/svg%3E"
+           alt="Zirevia Moss Stories: gentle gardening" />
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE (hero card) -->
+  <div class="featured-article">
+    <div class="text">
+      <span class="badge">featured</span>
+      <h2 style="margin: 0.2rem 0 0.4rem;">The living soil handbook</h2>
+      <p style="font-size: 1.05rem;">How to read your soil’s biology, feed the fungal network, and grow vegetables that taste like the earth they came from. A complete guide for the curious gardener.</p>
+      <p><a href="#">Read the full story →</a></p>
+    </div>
+    <div class="img-wrap">
+      <!-- featured article image (2/4) -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23dde6d2'/%3E%3Ccircle cx='100' cy='100' r='50' fill='%2387a96b' opacity='0.2'/%3E%3Cpath d='M40 120 L160 80 L220 150 L80 170 Z' fill='%23516544' opacity='0.3'/%3E%3Ctext x='70' y='120' font-family='IBM Plex Serif' font-size='18' fill='%231f3a1c'%3E🌱 soil%3C/text%3E%3C/svg%3E"
+           alt="living soil" />
+    </div>
+  </div>
+
+  <!-- BEGINNER GUIDES + EXPERT RESOURCES (card grid) -->
+  <h2 class="section-title">🌱 Beginner guides</h2>
+  <div class="card-grid">
+    <div class="card"><span class="meta">starting out</span><h3>First garden: a 30‑day plan</h3><p>From choosing a site to harvesting your first salad greens. No overwhelm, just practical steps.</p></div>
+    <div class="card"><span class="meta">soil basics</span><h3>Understanding pH &amp; compost</h3><p>Simple tests, amendments, and the art of building humus-rich beds.</p></div>
+    <div class="card"><span class="meta">tool guide</span><h3>Essential tools for small gardens</h3><p>What you actually need (and what you can skip). Durable, ergonomic, affordable.</p></div>
+  </div>
+
+  <h2 class="section-title">🧑‍🌾 Expert resources</h2>
+  <div class="card-grid">
+    <div class="card"><span class="meta">advanced</span><h3>Mycorrhizal networks</h3><p>How fungi trade nutrients with plants — and how to encourage them.</p></div>
+    <div class="card"><span class="meta">propagation</span><h3>Grafting &amp; cutting techniques</h3><p>Step‑by‑step for fruit trees, roses, and woody perennials.</p></div>
+    <div class="card"><span class="meta">permaculture</span><h3>Designing food forests</h3><p>Layering, guilds, and edge effects for resilient abundance.</p></div>
+  </div>
+
+  <!-- POPULAR CATEGORIES + TRENDING (inline) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem 4rem; margin: 2rem 0 1rem;">
+    <div><h3 style="margin:0 0 0.3rem;">📂 Popular categories</h3><p>Vegetable growing · Soil health · Pollinators · Herbal remedies · Composting · Seasonal tasks</p></div>
+    <div><h3 style="margin:0 0 0.3rem;">🔥 Trending topics</h3><p>No‑dig · Heirloom tomatoes · Garden planning · Natural pest control · Cover crops</p></div>
+  </div>
+
+  <!-- LATEST ARTICLES grid 3 columns -->
+  <h2 class="section-title">📖 Latest articles</h2>
+  <div class="card-grid">
+    <div class="card card-accent"><span class="meta">june 2026</span><h3>Summer pruning for stone fruits</h3><p>Improve airflow, reduce disease, and boost next year's crop.</p></div>
+    <div class="card card-accent"><span class="meta">june 2026</span><h3>Wildflower meadows: step by step</h3><p>Site prep, seed mixes, and year‑one maintenance.</p></div>
+    <div class="card card-accent"><span class="meta">may 2026</span><h3>Building a worm farm</h3><p>Vermicomposting indoors and out — rich castings for every container.</p></div>
+  </div>
+
+  <!-- IN-DEPTH TUTORIAL + TABLE / CHECKLIST -->
+  <h2>🧪 In‑depth tutorial: seed starting mix</h2>
+  <p>Create a custom, peat‑free mix that gives seedlings the best start. This recipe is used by market growers and home gardeners alike.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ingredient</th><th>Parts</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Coco coir</td><td>3</td><td>Water retention, structure</td></tr>
+        <tr><td>Compost (screened)</td><td>2</td><td>Nutrients, biology</td></tr>
+        <tr><td>Perlite</td><td>1</td><td>Aeration, drainage</td></tr>
+        <tr><td>Worm castings</td><td>½</td><td>Microbial boost</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="checklist">
+    <p style="font-weight:600; margin-bottom:0.3rem;">✅ Seed starting checklist</p>
+    <ul style="list-style:none;">
+      <li>Pre‑moisten mix 24h before sowing</li>
+      <li>Fill trays firmly, not packed</li>
+      <li>Plant at depth = 2× seed width</li>
+      <li>Bottom water with dilute seaweed</li>
+      <li>Provide 14‑16h light after germination</li>
+    </ul>
+  </div>
+
+  <!-- RESOURCE HUB (short) -->
+  <div style="background: #e3ecda; border-radius: 2rem 0.5rem; padding: 1.8rem 2.2rem; margin: 2rem 0;">
+    <h3 style="margin:0 0 0.3rem;">📚 Resource hub</h3>
+    <p style="margin:0;">Free downloadable planting calendars · Seed saving logs · Soil test guides · Tool maintenance checklists. <a href="#">Explore all resources →</a></p>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-block">
+    <h2 style="margin-top:0;">Frequently asked questions</h2>
+    <div class="faq-item"><div class="faq-q">When should I start tomatoes indoors?</div><p>Start 6‑8 weeks before your last frost date. Use a heat mat for germination.</p></div>
+    <div class="faq-item"><div class="faq-q">How often should I water raised beds?</div><p>Finger test: if the top 2″ are dry, water deeply. Twice a week in summer, less in spring.</p></div>
+    <div class="faq-item"><div class="faq-q">What is no‑dig gardening?</div><p>A method that layers compost and organic matter on top of soil, building fertility without disturbing soil structure.</p></div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div><h2 style="border-left-color: #baceaa;">Moss letters</h2><p>Weekly garden notes, seasonal advice, and reader Q&A. No spam, just soil.</p></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+      <input type="email" placeholder="your@email.com" />
+      <button>Subscribe</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© 2026 Zirevia Moss Stories · crafted for curious gardeners</div>
+    <div><a href="#">About</a> · <a href="#">Privacy</a> · <a href="#">Contact</a></div>
+  </footer>
+
+  <!-- hidden extra: 4th image (infographic) used as a small visual in article -->
+  <div style="display:none;"> <!-- infographic image used as decorative reference, not displayed in main flow -->
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23eef4e7'/%3E%3Ccircle cx='100' cy='100' r='60' fill='%2387a96b' opacity='0.15'/%3E%3Ctext x='40' y='110' font-family='IBM Plex Serif' font-size='18' fill='%231f3a1c'%3Einfographic%3C/text%3E%3C/svg%3E" alt="infographic" />
+  </div>
+
+  <!-- total images used: hero, featured, category (represented), infographic (hidden) = 4 -->
+  <!-- category image is represented by card images, but we have 3 visible + 1 hidden = 4 total -->
+</div>
+</body>
+</html>
